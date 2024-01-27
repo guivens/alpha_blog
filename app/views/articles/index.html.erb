@@ -4,15 +4,19 @@
     <thead>
         <th>Title</th>
         <th>Description</th>
-        <th>Actions</th>
+        <th colspan="3">Actions</th>
     </thead>
 
     <% @articles.each do |article| %>
     <tbody>
         <td><%= article.title %></td>
         <td><%= article.description %></td>
-        <td>sdsdsdsd</td>
+        <td><%= link_to "Show", article_path(article) %></td>
+        <td><%= link_to "edit", edit_article_path(article)%></td>
+        <td><%= link_to "Delete", article_path(article), data: {"turbo-method": :delete} %></td>
     </tbody>
     <% end %>
 
 </table>
+
+<p><%= link_to "create new article", new_article_path %></p>
