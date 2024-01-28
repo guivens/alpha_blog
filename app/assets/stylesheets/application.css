@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ #bg-img{
+   background-image: url("blog.jpg");
+   background-size: cover;
+   height: 600px;
+ }
