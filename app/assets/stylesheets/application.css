@@ -15,7 +15,11 @@
  */
 
  #bg-img{
-   background-image: url("blog.jpg");
+   background-image: url("new.jpg");
    background-size: cover;
+   opacity: 1;
    height: 600px;
+ }
+ .navbar a{
+  color: white;
  }

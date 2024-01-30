@@ -1,17 +1,29 @@
-<%= form_with(model: @article, local: true) do |f| %>
+<div class="container">
 
-<p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-</p>
+    <div class="row justify-content-center text-light">
+        <div class="col-10">
+            <%= form_with(model: @article, class: "bg-primary p-5 rounded", local: true) do |f| %>
+                <div class="from-group row">
+                    <%= f.label :title, class: "col-2 col-form-label" %>
+                    <div class="col-10">
+                        <%= f.text_field :title, class: "form-control", placeholder: "Title of article"%>
+                    </div>
+                </div>
 
-<p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-</p>
+                <div class="from-group row pt-3 ">
+                    <%= f.label :description, class: "col-2 col-form-label"%>
+                    <div class="col-10">
+                    <%= f.text_area :description, rows: 10,  class: "form-control", placeholder: "Description of article" %>
+                    </div>
+                </div>
 
-<p>
-    <%= f.submit %>
-</p>
+                <div class="from-group row mt-3 justify-content-center">
+                    <%= f.submit class: "col-3 btn btn-outline-light btn-lg" %>
+                </div>
+            <% end %>
+        </div>
 
-<% end %>
+        <div class="text-primary text-center mt-3"><%= link_to "Return to article listing", articles_path %></div>
+    </div>
+
+</div>

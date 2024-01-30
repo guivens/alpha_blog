@@ -1,4 +1,19 @@
-<h1>showing articles details</h1>
+<h1 class="text-center primary m-4"><%= @article.title %></h1>
 
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
+<div class="container">
+        <div class="card text-center ">
+            <div class="card-header bg-primary">
+              Featured
+            </div>
+            <div class="card-body">
+              <div class="card-text text-left"><%= simple_format(@article.description) %></div>
+              <%= link_to "edit", edit_article_path(@article), class: "btn btn-outline-success" %>
+              <%= link_to "Delete", article_path(@article), data: {"turbo-method": :delete}, class: "btn btn-outline-danger"  %>
+            </div>
+            <div class="card-footer text-body-secondary bg-primary text-muted">
+               <small> Created <%= time_ago_in_words(@article.created_at)%> ago ,
+                updated <%= time_ago_in_words(@article.updated_at)%> ago</small>
+            </div>
+        </div>
+        <div class="text-primary text-center mt-3"><%= link_to "Return to article listing", articles_path %></div>
+</div>
