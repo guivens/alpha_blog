@@ -6,7 +6,7 @@
             <div class="col-8">
                 <div class="card mt-4">
                     <div class="card-header bg-primary d-flex justify-content-between"> 
-                        <div class="h5">Author name</div>
+                        <div class="h5">by <%= article.user.username if article.user %></div>
                         <div class="text-muted">
                             <small> Created <%= time_ago_in_words(article.created_at)%> ago ,
                             updated <%= time_ago_in_words(article.updated_at)%> ago
