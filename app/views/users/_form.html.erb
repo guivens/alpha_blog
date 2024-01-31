@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div class="row justify-content-center text-light">
+        <div class="col-10">
+            <%= form_with(model: @user, class: "bg-primary p-5 rounded", local: true) do |f| %>
+                <div class="from-group row">
+                    <%= f.label :username, class: "col-2 col-form-label" %>
+                    <div class="col-10">
+                        <%= f.text_field :username, class: "form-control", placeholder: "enter a username"%>
+                    </div>
+                </div>
+
+                <div class="from-group row pt-3 ">
+                    <%= f.label :email, class: "col-2 col-form-label"%>
+                    <div class="col-10">
+                    <%= f.email_field :email,  class: "form-control", placeholder: "Enter your email" %>
+                    </div>
+                </div>
+
+                <div class="from-group row">
+                    <%= f.label :password, class: "col-2 col-form-label" %>
+                    <div class="col-10">
+                        <%= f.password_field :password, class: "form-control", placeholder: "enter a password"%>
+                    </div>
+                </div>
+
+                <div class="from-group row mt-3 justify-content-center">
+                    <%= f.submit class: "col-3 btn btn-outline-light btn-lg" %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="text-primary text-center mt-3"><%= link_to "Return to article listing", articles_path %></div>
+    </div>
+
+</div>
