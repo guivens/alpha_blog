@@ -1,0 +1,7 @@
+<h1 class="text-center m-4"><%= @user.username %>'s profile</h1>
+
+<div class="rounded mx-auto d-block"><%= gravatar_for @user, size: 150 %></div>
+
+<h1 class="text-center m-4">Articles</h1>
+
+<%= render 'articles/listing' %>
