@@ -1,6 +1,7 @@
 <h1 class="text-center m-4"><%= @user.username %>'s profile</h1>
 
-<div class="rounded mx-auto d-block"><%= gravatar_for @user, size: 150 %></div>
+<div class="rounded-50 mx-auto d-block"><%= gravatar_for @user, size: 150 %></div>
+<div class="text-center mt-4"><%= link_to "Edit your profile", edit_user_path, class: "btn btn-outline-primary" %></div>
 
 <h1 class="text-center m-4">Articles</h1>
 
