@@ -11,6 +11,9 @@ gem "sprockets-rails"
 #sass
 gem 'sassc-rails'
 
+#will paginate
+gem 'will_paginate', '~> 4.0'
+
 #bootstrap
 gem 'bootstrap', '~> 5.3.2'
 
