@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
     before_action :find_params, only: [:show, :edit, :update]
 
+    def show
+        @user = User.find(params[:id])
+        @articles = @user.articles
+    end
+
     def index
         @users = User.all
     end
