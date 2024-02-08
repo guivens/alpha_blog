@@ -9,3 +9,7 @@
 <h1 class="text-center text-primary m-3 mb-3">Articles</h1>
 
 <%= render 'articles/listing' %>
+
+<div class="apple_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
