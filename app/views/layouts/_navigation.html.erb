@@ -21,8 +21,6 @@
               <% if logged_in? %>
               <%= link_to "create article", new_article_path, class: "dropdown-item" %>
               <% end %>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
         </ul>
@@ -38,7 +36,7 @@
                 <%= link_to "View profile", user_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item" %>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <%= link_to "Delete profile", user_path(current_user), data: {"turbo-method": :delete, confirm: "are you sure"}, class: "dropdown-item text-danger" %>
               </ul>
             </li>
 
