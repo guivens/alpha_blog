@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user.destroy
-        session[:user_id] = nil
+        session[:user_id] = nil if @user == current_user
         flash[:notice] = "Account delete"
         redirect_to root_path
     end
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     end
 
     def same_user
-        if current_user != @user
+        if current_user != @user && !current_user.admin?
             flash[:alert] = "you can only modified your account"
             redirect_to user_path
         end
