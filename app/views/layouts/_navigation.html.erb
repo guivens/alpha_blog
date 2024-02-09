@@ -18,29 +18,41 @@
             </a>
             <ul class="dropdown-menu bg-primary">
               <%= link_to "Articles listing", articles_path, class: "dropdown-item" %>
+              <% if logged_in? %>
               <%= link_to "create article", new_article_path, class: "dropdown-item" %>
+              <% end %>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
-          </ul>
+        </ul>
 
           <ul class="navbar-nav d-flex justify-content-end">
-          <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Log out', logout_path, data: {"turbo-method": :delete}, class: "nav-link" %>
-          </li>
-          <% else %>
-          <li class="nav-item">
-            <%= link_to 'Log in', login_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'sign up', signup_path, class: "nav-link" %>
-          </li>
-          <% end %>
+            <% if logged_in? %>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pofile <%= current_user.username %>
+              </a>
+              <ul class="dropdown-menu bg-primary">
+                <%= link_to "View profile", user_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item" %>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+
+              <li class="nav-item">
+                <%= link_to 'Log out', logout_path, data: {"turbo-method": :delete}, class: "nav-link" %>
+              </li>
+              <% else %>
+              <li class="nav-item">
+                <%= link_to 'Log in', login_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'sign up', signup_path, class: "nav-link" %>
+              </li>
+            <% end %>
           </ul>
        <!-- <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

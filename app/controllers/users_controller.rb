@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_params, only: [:show, :edit, :update]
+    before_action :require_user, only: [:edit, :update]
 
     def index
         @users = User.paginate(page: params[:page], per_page: 5)
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            session[:user_id] = @user.id
             flash[:success] = "Welcome to the alpha blog #{@user.username} "
             redirect_to @user
         else
