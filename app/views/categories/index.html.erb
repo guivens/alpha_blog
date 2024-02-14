@@ -1,0 +1,32 @@
+<h1 class="text-center text-primary m-3 mb-3">Categories listing</h1>
+
+<div class="container">
+    <% @categories.each do |category| %>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-12 col-lg-8">
+                <div class="card mt-4">
+                    <div class="card-header bg-primary d-flex justify-content-between"> 
+                        <div class="h4 text-center"><%= link_to category.name, category, class: "text-light" %></div>
+                        <div class="text-muted">
+                            <small> Created <%= time_ago_in_words(category.created_at)%> ago </small>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <%= link_to "Show category", category_path(category), class: "btn btn-outline-primary" %>
+                        <% if logged_in? && current_user.admin?  %>
+                            <%= link_to "Edit category", edit_category_path(category), class: "btn btn-outline-success" %>
+                            <%= link_to "Delete category", category_path(category), class: "btn btn-outline-danger", data: {"turbo-method": :delete} %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <!-- <div class="text-center"> -->
+        <!-- <%= link_to "Create new user", new_article_path, class: "btn btn-outline-primary btn-lg m-4" %> -->
+    <!-- </div> -->
+</div>
+
+<div class="apple_pagination">
+    <%= will_paginate @categories, :container => false %>
+</div>

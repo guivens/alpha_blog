@@ -7,7 +7,7 @@
 <div class="container">
     <% @users.each do |user| %>
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col-sm-12 col-md-12 col-lg-8">
                 <div class="card mt-4">
                     <div class="card-header bg-primary d-flex justify-content-between"> 
                         <div class="h5">by <%= link_to user.username, user, class: "text-light" %></div>

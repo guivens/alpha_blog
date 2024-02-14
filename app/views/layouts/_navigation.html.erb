@@ -20,6 +20,7 @@
               <%= link_to "Articles listing", articles_path, class: "dropdown-item" %>
               <% if logged_in? %>
               <%= link_to "create article", new_article_path, class: "dropdown-item" %>
+              <%= link_to 'Category', categories_path, class: "dropdown-item" %>
               <% end %>
             </ul>
           </li>

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row justify-content-center text-light">
+        <div class="col-10">
+            <%= form_with(model: @category, class: "bg-primary p-5 rounded", local: true) do |f| %>
+                <div class="from-group row">
+                    <%= f.label :name, class: "col-sm-1 col-md-1 col-lg-1 col-form-label" %>
+                    <div class="col-sm-11 col-md-11 col-lg-11">
+                        <%= f.text_field :name, class: "form-control", placeholder: "Enter a name"%>
+                    </div>
+                </div>
+
+                <div class="from-group row mt-3 justify-content-center">
+                    <%= f.submit "Create a category", class: "col-sm-12 col-md-12 col-lg-3 btn btn-outline-light btn-lg" %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="text-primary text-center mt-3"><%= link_to "Return to article listing", articles_path %></div>
+    </div>
+
+</div>

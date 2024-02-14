@@ -5,6 +5,13 @@
             <div class="card-header bg-primary h4">
                 by <%= @article.user.username if @article.user%>
                 <div><%= link_to gravatar_for(@article.user, size: 70), user_path(@article.user) %></div>
+                <% if @article.categories.any? %>
+                    <% @article.categories.each do |category| %>
+                        <div class="badge rounded bg-light text-primary mt-3 mb-3">
+                            <%= link_to category.name, category_path(category) %>
+                        </div>
+                    <% end %>
+                <% end %>
             </div>
             <div class="card-body">
                 <div class="card-text text-left"><%= simple_format(@article.description) %></div>

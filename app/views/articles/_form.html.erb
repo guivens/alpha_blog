@@ -17,6 +17,14 @@
                     </div>
                 </div>
 
+                <div class="from-group row pt-3 ">
+                    <%= f.label :category, class: "col-2 col-form-label"%>
+                    <div class="col-10">
+                    <%= f.collection_select(:category_ids, Category.all, :id, :name, 
+                    {prompt: "Choose from the list below (optional)"}, { :multiple => true, class: "custom-select"} )%>
+                    </div>
+                </div>
+
                 <div class="from-group row mt-3 justify-content-center">
                     <%= f.submit class: "col-3 btn btn-outline-light btn-lg" %>
                 </div>
